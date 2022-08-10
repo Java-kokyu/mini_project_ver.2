@@ -26,7 +26,6 @@ public class CommentService {
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
     private final MemberRepository memberRepository;
-
     private final CommentLikeRepository commentLikeRepository;
 
     // 댓글 등록
