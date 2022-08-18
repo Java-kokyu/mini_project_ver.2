@@ -16,10 +16,18 @@ public class Beverage {
     @Id
     private Long id;
 
+    @Column
+    private String beverage;
+
     @Convert(converter = SizeConverter.class)
     private Size size;
 
     @OneToMany(mappedBy = "beverage")
     @JsonManagedReference(value = "beverage-fk")
     private List<BeverageIngredient> beverageIngredients;
+
+    public Beverage(String beverage, Long sizeCode) {
+        this.beverage = beverage;
+        this.size = Size.ofCode(sizeCode);
+    }
 }

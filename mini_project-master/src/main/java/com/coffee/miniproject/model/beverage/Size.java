@@ -7,17 +7,18 @@ import java.util.Arrays;
 
 @Getter
 public enum Size {
-    SHORT(237, 1L),
-    TALL(355, 2L),
-    GRANDE(473, 3L),
-    VENTI(591, 4L);
+    SHORT(237, "SHORT", 1L),
+    TALL(355, "TALL", 2L),
+    GRANDE(473, "GRANDE",3L),
+    VENTI(591, "VENTI",4L);
 
-    private final int volume;
+    private final int sizeVolume;
+    private final String size;
     private final Long code;
 
-    @Builder
-    Size(int volume, Long code) {
-        this.volume = volume;
+    Size(int sizeVolume, String size, Long code) {
+        this.sizeVolume = sizeVolume;
+        this.size = size;
         this.code = code;
     }
 

@@ -7,14 +7,19 @@ import java.util.Arrays;
 
 @Getter
 public enum Unit {
-    ML(1.0, 1L), OZ(30.0, 2L), TSP(3.7, 3L), DR(0.2, 4L);
+    ML(1.0, "ml", 1L),
+    G(1.0, "g", 2L),
+    OZ(30.0, "oz", 3L),
+    TSP(3.7, "tsp", 4L),
+    DR(0.2, "dr", 5L);
 
 
-    private double unit;
+    private double unitVolume;
+    private String unit;
     private Long code;
 
-    @Builder
-    Unit(double unit, Long code) {
+    Unit(double unitVolume, String unit, Long code) {
+        this.unitVolume = unitVolume;
         this.unit = unit;
         this.code = code;
     }

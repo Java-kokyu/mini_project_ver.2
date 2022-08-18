@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "INGREDIENT_ID")
+    @Column
     private Long id;
 
     @Convert(converter = CategoryConverter.class)
