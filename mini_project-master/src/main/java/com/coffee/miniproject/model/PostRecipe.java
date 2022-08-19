@@ -73,7 +73,7 @@ public class PostRecipe extends Timestamped {
     }
 
     @Getter
-    public static class Response {
+    public static class ResponseDetail {
         private final Long id;
         private final String title;
         private final String contents;
@@ -85,7 +85,7 @@ public class PostRecipe extends Timestamped {
         private final String size;
         private final List<BeverageIngredient.Response> ingredients;
 
-        public Response(PostRecipe postRecipe, List<BeverageIngredient.Response> ingredients) {
+        public ResponseDetail(PostRecipe postRecipe, List<BeverageIngredient.Response> ingredients) {
             this.id = postRecipe.getId();
             this.title = postRecipe.getTitle();
             this.contents = postRecipe.getContents();
@@ -98,5 +98,37 @@ public class PostRecipe extends Timestamped {
             this.ingredients = ingredients;
         }
 
+    }
+
+    @Getter
+    public static class Response {
+        private Long id;
+        private String title;
+        private String contents;
+        private String nickname;
+        private String img;
+        private LocalDateTime date;
+        private int likeCount;
+        private Boolean checkLike;
+
+        public Response(PostRecipe postRecipe, int likeCount, Boolean checkLike) {
+            this.id = postRecipe.getId();
+            this.title = postRecipe.getTitle();
+            this.contents = postRecipe.getContents();
+            this.nickname = postRecipe.getMember().getNickname();
+            this.img = postRecipe.getImg();
+            this.date = postRecipe.getCreatedAt();
+            this.likeCount = likeCount;
+            this.checkLike = checkLike;
+        }
+
+        public Response(PostRecipe postRecipe) {
+            this.id = postRecipe.getId();
+            this.title = postRecipe.getTitle();
+            this.contents = postRecipe.getContents();
+            this.nickname = postRecipe.getMember().getNickname();
+            this.img = postRecipe.getImg();
+            this.date = postRecipe.getCreatedAt();
+        }
     }
 }

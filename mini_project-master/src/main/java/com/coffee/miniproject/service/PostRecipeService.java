@@ -25,7 +25,7 @@ public class PostRecipeService {
     private final PostRecipeRepository postRecipeRepository;
     private final IngredientRepository ingredientRepository;
 
-    public PostRecipe.Response postRecipe(Member member, PostRecipe.Request request) {
+    public PostRecipe.ResponseDetail postRecipe(Member member, PostRecipe.Request request) {
         // 1. Beverage 등록
         Beverage beverage = saveBeverage(request.getBeverage(), request.getSizeCode());
         // 2. Beverage Ingredient 등록
@@ -33,10 +33,19 @@ public class PostRecipeService {
         // 3. Post 등록
         PostRecipe postRecipe = savePostRecipe(member, beverage, request.getTitle(), request.getContents(), request.getImg(), request.getSizeCode());
 
-        return new PostRecipe.Response(postRecipe, beverageIngredientResponses);
+        return new PostRecipe.ResponseDetail(postRecipe, beverageIngredientResponses);
     }
 
-    public PostRecipe.Response getRecipeDetail(Member member, Long id) {
+    public List<PostRecipe.Response> getPostRecipe() {
+        List<PostRecipe> postRecipes = postRecipeRepository.findAll();
+        List<PostRecipe.Response> responses = new ArrayList<>();
+        for(PostRecipe postRecipe : postRecipes) {
+            responses.add(new PostRecipe.Response(postRecipe));
+        }
+        return responses;
+    }
+
+    public PostRecipe.ResponseDetail getRecipeDetail(Long id) {
         List<BeverageIngredient.Response> beverageIngredientResponses = new ArrayList<>();
         PostRecipe postRecipe = postRecipeRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("존재하지 않는 아이디입니다.")
@@ -44,7 +53,7 @@ public class PostRecipeService {
         for(BeverageIngredient beverageIngredient : postRecipe.getBeverage().getBeverageIngredients()) {
             beverageIngredientResponses.add(new BeverageIngredient.Response(beverageIngredient));
         }
-        return new PostRecipe.Response(postRecipe, beverageIngredientResponses);
+        return new PostRecipe.ResponseDetail(postRecipe, beverageIngredientResponses);
     }
     @Transactional
     public List<BeverageIngredient.Response> saveBeverageIngredient(Beverage beverage, List<BeverageIngredient.Request> requests) {
