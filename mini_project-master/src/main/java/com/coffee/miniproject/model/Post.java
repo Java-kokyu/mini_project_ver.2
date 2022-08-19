@@ -58,7 +58,6 @@ public class Post extends Timestamped {
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;
 
-
     // postRequestDto 받는 생성자
     public Post(PostRequestDto requestDto, Member member){
         this.title = requestDto.getTitle();
