@@ -9,6 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class AddressResponseDto {
+
+    private Long id;
     private Long postcode;
     private String address;
     private String simpleAddress;
@@ -16,6 +18,7 @@ public class AddressResponseDto {
     private String longitude;
 
     public AddressResponseDto(Address address) {
+        this.id = address.getId();
         this.postcode = address.getPostcode();
         this.address = address.getAddress();
         this.simpleAddress = address.getSimpleAddress();

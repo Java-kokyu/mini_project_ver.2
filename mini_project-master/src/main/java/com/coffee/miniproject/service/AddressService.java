@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -18,6 +20,29 @@ public class AddressService {
     public AddressResponseDto createAddress(AddressRequestDto requestDto) {
         Address address = new Address(requestDto);
         addressRepository.save(address);
+
+
+        return new AddressResponseDto(address);
+    }
+
+    public List<AddressResponseDto> getAllAddress() {
+        List<Address> addressList;
+        List<AddressResponseDto> addressResponseDtoList = new ArrayList<>();
+
+        addressList = addressRepository.findAll();
+
+        for (Address address : addressList) {
+            AddressResponseDto addressResponseDto = new AddressResponseDto(address);
+            addressResponseDtoList.add(addressResponseDto);
+        }
+
+        return addressResponseDtoList;
+    }
+
+    public AddressResponseDto getAddressDetail(Long id) {
+        Address address = addressRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("ID값이 올바르지 않습니다.")
+        );
 
         return new AddressResponseDto(address);
     }

@@ -5,16 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
 public class Address {
-    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
     @Column
