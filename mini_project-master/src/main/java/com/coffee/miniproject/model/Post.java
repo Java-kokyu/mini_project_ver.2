@@ -42,6 +42,21 @@ public class Post extends Timestamped {
     private String img;
 
     @Column
+    private String zipCode;
+
+    @Column
+    private String simpleAddress;
+
+    @Column
+    private String latitude;
+
+    @Column
+    private String longitude;
+
+    @Column
+    private int rate;
+
+    @Column
     private Long likeCnt;
 
     @JsonIgnore
