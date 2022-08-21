@@ -1,3 +1,4 @@
+/*
 package com.coffee.miniproject.service;
 
 import com.coffee.miniproject.dto.CommentDto;
@@ -21,7 +22,7 @@ public class ReplyService {
     private final MemberRepository memberRepository;
     private final CommentReplyRepository commentReplyRepository;
     private final PostRepository postRepository;
-    /*@Transactional
+    @Transactional
     public void createNewReply(ReplyRequestDto requestDto) throws Throwable {
         CommentReply commentReply = commentReplyRepository.save(
                 CommentReply.creatComment(requestDto.getContents(),
@@ -34,5 +35,6 @@ public class ReplyService {
 
     public Object findReplyByPostId(Long postid) {
 
-    }*/
+    }
 }
+*/
