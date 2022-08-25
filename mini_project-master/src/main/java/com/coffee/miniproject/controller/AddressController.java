@@ -18,9 +18,10 @@ public class AddressController {
     private final AddressService addressService;
     // 주소 등록, 현재는 post와 mapping 해서 사용
     @PostMapping("/api/address")
-    public AddressResponseDto postAddress(@RequestBody AddressRequestDto requestDto) {
+    public ResponseEntity<Object> postAddress(@RequestBody AddressRequestDto requestDto) {
+        addressService.createAddress(requestDto);
 
-        return addressService.createAddress(requestDto);
+        return new ResponseEntity<>(new StatusResponseDto("Success"), HttpStatus.OK);
     }
 
     // 주소 전체 조회 (사용 안할거 같지만 일단 넣기)

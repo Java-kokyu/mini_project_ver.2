@@ -12,6 +12,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @NoArgsConstructor
@@ -62,6 +63,9 @@ public class Post extends Timestamped {
     @JsonIgnore
     @ManyToMany
     private List<MemberLikeDto> likeMembers = new ArrayList<>();
+
+   /* @Column
+    private HashMap<String, String> photos = new HashMap<>();*/
 
     // FK로 memberId 들어옴.
     @JsonIgnore
