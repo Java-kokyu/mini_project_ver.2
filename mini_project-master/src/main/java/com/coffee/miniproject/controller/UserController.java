@@ -21,8 +21,8 @@ public class UserController {
     private final MemberService memberService;
     private final MemberRepository memberRepository;
     @PostMapping("/user/signup")
-    public ResponseEntity<MemberResponseDto> signup(@RequestBody MemberRequestDto memberRequestDto) {
-        return ResponseEntity.ok(memberService.signup(memberRequestDto));
+    public ResponseEntity<MemberResponseDto> signup(@RequestBody SignupDto signupDto) {
+        return ResponseEntity.ok(memberService.signup(signupDto));
     }
 
     @PostMapping("/user/login")
