@@ -1,28 +1,19 @@
 package com.coffee.miniproject.service;
 
-import com.coffee.miniproject.common.exception.UserException;
 import com.coffee.miniproject.dto.*;
 import com.coffee.miniproject.model.Member;
 import com.coffee.miniproject.model.RefreshToken;
-import com.coffee.miniproject.model.UserRole;
 import com.coffee.miniproject.repository.MemberRepository;
 import com.coffee.miniproject.repository.RefreshTokenRepository;
 import com.coffee.miniproject.security.jwt.TokenProvider;
-import com.coffee.miniproject.validator.SignupValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -33,12 +24,15 @@ public class MemberService {
     private final TokenProvider tokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
     @Transactional
-    public MemberResponseDto signup(MemberRequestDto memberRequestDto) {
-        if (memberRepository.existsByUsername(memberRequestDto.getUsername())) {
+    public MemberResponseDto signup(SignupDto signupDto) {
+        if (memberRepository.existsByUsername(signupDto.getUsername())) {
             throw new RuntimeException("이미 가입되어 있는 유저입니다");
         }
+        if(!signupDto.checkPassword()) {
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
+        }
 
-        Member member = memberRequestDto.toMember(passwordEncoder);
+        Member member = signupDto.toMember(passwordEncoder);
         return MemberResponseDto.of(memberRepository.save(member));
     }
 
