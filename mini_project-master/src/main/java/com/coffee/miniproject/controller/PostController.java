@@ -1,21 +1,17 @@
 package com.coffee.miniproject.controller;
 
 import com.coffee.miniproject.dto.*;
-import com.coffee.miniproject.model.Member;
+import com.coffee.miniproject.dto.request.PostRequestDto;
+import com.coffee.miniproject.dto.request.PostRequestDto4Put;
+import com.coffee.miniproject.dto.response.PostDetailResponseDto;
+import com.coffee.miniproject.dto.response.PostResponseDto;
 import com.coffee.miniproject.security.SecurityUtil;
-import com.coffee.miniproject.security.UserDetailsImpl;
 import com.coffee.miniproject.service.PostService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.util.List;
 
 @RestController

@@ -1,8 +1,8 @@
 package com.coffee.miniproject.model;
 
 import com.coffee.miniproject.dto.MemberLikeDto;
-import com.coffee.miniproject.dto.PostRequestDto;
-import com.coffee.miniproject.dto.PostRequestDto4Put;
+import com.coffee.miniproject.dto.request.PostRequestDto;
+import com.coffee.miniproject.dto.request.PostRequestDto4Put;
 import com.coffee.miniproject.security.UserDetailsImpl;
 import com.coffee.miniproject.util.Timestamped;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -12,7 +12,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @NoArgsConstructor
@@ -33,13 +32,15 @@ public class Post extends Timestamped {
 
 
     // ERD 누락된 column!
+    /*
     @Column(nullable = false)
     private String nickname;
+    */
 
     @Column(nullable = false)
     private PostCategory category;
 
-    @Column()
+    @Column
     private String img;
 
     @Column
@@ -81,7 +82,7 @@ public class Post extends Timestamped {
     public Post(PostRequestDto requestDto, Member member){
         this.title = requestDto.getTitle();
         this.contents = requestDto.getContents();
-        this.nickname = member.getNickname();
+        // this.nickname = member.getNickname();
         this.img = requestDto.getImg();
         this.member = member;
         this.likeCnt = 0L;

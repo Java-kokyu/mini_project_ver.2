@@ -2,7 +2,7 @@
 package com.coffee.miniproject.controller;
 
 import com.coffee.miniproject.dto.CommentDto;
-import com.coffee.miniproject.dto.ReplyRequestDto;
+import com.coffee.miniproject.dto.request.ReplyRequestDto;
 import com.coffee.miniproject.model.result.SingleResult;
 import com.coffee.miniproject.service.ReplyService;
 import com.coffee.miniproject.service.ResultService;

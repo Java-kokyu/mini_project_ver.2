@@ -2,7 +2,7 @@
 package com.coffee.miniproject.service;
 
 import com.coffee.miniproject.dto.CommentDto;
-import com.coffee.miniproject.dto.ReplyRequestDto;
+import com.coffee.miniproject.dto.request.ReplyRequestDto;
 import com.coffee.miniproject.model.Comment;
 import com.coffee.miniproject.model.CommentReply;
 import com.coffee.miniproject.repository.CommentReplyRepository;

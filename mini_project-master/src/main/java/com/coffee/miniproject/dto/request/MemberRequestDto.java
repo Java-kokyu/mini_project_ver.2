@@ -1,4 +1,4 @@
-package com.coffee.miniproject.dto;
+package com.coffee.miniproject.dto.request;
 
 import com.coffee.miniproject.model.Member;
 import com.coffee.miniproject.model.UserRole;

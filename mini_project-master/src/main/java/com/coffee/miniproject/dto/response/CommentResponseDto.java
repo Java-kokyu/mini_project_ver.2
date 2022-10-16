@@ -1,4 +1,4 @@
-package com.coffee.miniproject.dto;
+package com.coffee.miniproject.dto.response;
 
 import com.coffee.miniproject.model.Comment;
 import com.coffee.miniproject.model.Member;

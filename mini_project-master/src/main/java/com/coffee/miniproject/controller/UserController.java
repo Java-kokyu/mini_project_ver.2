@@ -1,11 +1,13 @@
 package com.coffee.miniproject.controller;
 
 import com.coffee.miniproject.dto.*;
+import com.coffee.miniproject.dto.request.MemberRequestDto;
+import com.coffee.miniproject.dto.request.TokenRequestDto;
+import com.coffee.miniproject.dto.response.MemberResponseDto;
 import com.coffee.miniproject.model.Member;
 import com.coffee.miniproject.repository.MemberRepository;
 import com.coffee.miniproject.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

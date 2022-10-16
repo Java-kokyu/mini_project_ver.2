@@ -1,6 +1,8 @@
 package com.coffee.miniproject.controller;
 
-import com.coffee.miniproject.dto.*;
+import com.coffee.miniproject.dto.request.CommentRequestDto;
+import com.coffee.miniproject.dto.request.CommentRequestDto4Put;
+import com.coffee.miniproject.dto.response.CommentResponseDto;
 import com.coffee.miniproject.service.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

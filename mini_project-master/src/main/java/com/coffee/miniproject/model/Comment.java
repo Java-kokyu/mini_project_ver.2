@@ -1,6 +1,6 @@
 package com.coffee.miniproject.model;
 
-import com.coffee.miniproject.dto.CommentRequestDto4Put;
+import com.coffee.miniproject.dto.request.CommentRequestDto4Put;
 import com.coffee.miniproject.util.Timestamped;
 import lombok.Builder;
 import lombok.Getter;

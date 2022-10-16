@@ -1,6 +1,6 @@
 package com.coffee.miniproject.model;
 
-import com.coffee.miniproject.dto.AddressRequestDto;
+import com.coffee.miniproject.dto.request.AddressRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

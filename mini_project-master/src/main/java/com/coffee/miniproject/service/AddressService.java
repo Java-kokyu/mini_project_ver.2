@@ -1,8 +1,8 @@
 package com.coffee.miniproject.service;
 
-import com.coffee.miniproject.dto.AddressRequestDto;
-import com.coffee.miniproject.dto.AddressResponseDto;
-import com.coffee.miniproject.dto.StatusResponseDto;
+import com.coffee.miniproject.dto.request.AddressRequestDto;
+import com.coffee.miniproject.dto.response.AddressResponseDto;
+import com.coffee.miniproject.dto.response.StatusResponseDto;
 import com.coffee.miniproject.model.Address;
 import com.coffee.miniproject.repository.AddressRepository;
 import lombok.RequiredArgsConstructor;

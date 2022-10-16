@@ -1,4 +1,4 @@
-package com.coffee.miniproject.dto;
+package com.coffee.miniproject.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

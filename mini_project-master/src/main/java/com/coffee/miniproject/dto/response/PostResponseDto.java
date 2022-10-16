@@ -1,5 +1,6 @@
-package com.coffee.miniproject.dto;
+package com.coffee.miniproject.dto.response;
 
+import com.coffee.miniproject.dto.MemberLikeDto;
 import com.coffee.miniproject.model.Member;
 import com.coffee.miniproject.model.Post;
 import lombok.Getter;
@@ -39,7 +40,7 @@ public class PostResponseDto {
         this.username = post.getMember().getUsername();
         this.title = post.getTitle();
         this.contents = post.getContents();
-        this.nickname = post.getNickname();
+        // this.nickname = post.getNickname();
         this.date = post.getModifiedAt();
         this.img = post.getImg();
         this.likeCnt = post.getLikeCnt();

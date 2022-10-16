@@ -1,4 +1,4 @@
-package com.coffee.miniproject.dto;
+package com.coffee.miniproject.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

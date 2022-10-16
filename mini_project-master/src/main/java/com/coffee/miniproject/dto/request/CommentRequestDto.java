@@ -1,4 +1,4 @@
-package com.coffee.miniproject.dto;
+package com.coffee.miniproject.dto.request;
 
 import com.coffee.miniproject.model.Comment;
 import lombok.AllArgsConstructor;

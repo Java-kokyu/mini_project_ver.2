@@ -1,9 +1,6 @@
 package com.coffee.miniproject.controller;
 
-import com.coffee.miniproject.dto.ImageRequestDto;
-import com.coffee.miniproject.dto.PostRequestDto;
-import com.coffee.miniproject.model.Post;
-import com.coffee.miniproject.model.result.MultipleResult;
+import com.coffee.miniproject.dto.request.ImageRequestDto;
 import com.coffee.miniproject.service.ImageUploadService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,8 +16,8 @@ import java.util.List;
 public class ImageUploadController {
     private final ImageUploadService imageUploadService;
 
-    @PostMapping("/api/post/image")
+   /* @PostMapping("/api/post/image")
     public HashMap<ImageRequestDto, ImageRequestDto> uploadImages(@RequestParam(value = "file", required = false)List<MultipartFile> multipartFiles) {
         return imageUploadService.uploadPostImages(multipartFiles, dir);
-    }
+    }*/
 }

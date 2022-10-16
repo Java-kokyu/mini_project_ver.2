@@ -1,6 +1,9 @@
 package com.coffee.miniproject.service;
 
 import com.coffee.miniproject.dto.*;
+import com.coffee.miniproject.dto.request.MemberRequestDto;
+import com.coffee.miniproject.dto.request.TokenRequestDto;
+import com.coffee.miniproject.dto.response.MemberResponseDto;
 import com.coffee.miniproject.model.Member;
 import com.coffee.miniproject.model.RefreshToken;
 import com.coffee.miniproject.repository.MemberRepository;

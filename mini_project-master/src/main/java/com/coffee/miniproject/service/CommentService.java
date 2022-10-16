@@ -1,8 +1,8 @@
 package com.coffee.miniproject.service;
 
-import com.coffee.miniproject.dto.CommentRequestDto;
-import com.coffee.miniproject.dto.CommentRequestDto4Put;
-import com.coffee.miniproject.dto.CommentResponseDto;
+import com.coffee.miniproject.dto.request.CommentRequestDto;
+import com.coffee.miniproject.dto.request.CommentRequestDto4Put;
+import com.coffee.miniproject.dto.response.CommentResponseDto;
 import com.coffee.miniproject.model.Comment;
 import com.coffee.miniproject.model.CommentLike;
 import com.coffee.miniproject.model.Member;

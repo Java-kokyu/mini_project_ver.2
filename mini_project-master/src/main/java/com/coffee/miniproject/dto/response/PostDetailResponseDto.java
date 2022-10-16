@@ -1,4 +1,4 @@
-package com.coffee.miniproject.dto;
+package com.coffee.miniproject.dto.response;
 
 import com.coffee.miniproject.model.Post;
 import lombok.Getter;
@@ -29,7 +29,7 @@ public class PostDetailResponseDto {
         this.id = post.getId();
         this.title = post.getTitle();
         this.contents = post.getContents();
-        this.nickname = post.getNickname();
+        // this.nickname = post.getNickname();
         this.img = post.getImg();
         this.date = post.getModifiedAt();
 

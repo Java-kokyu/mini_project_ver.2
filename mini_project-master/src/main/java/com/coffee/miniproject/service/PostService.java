@@ -1,6 +1,10 @@
 package com.coffee.miniproject.service;
 
 import com.coffee.miniproject.dto.*;
+import com.coffee.miniproject.dto.request.PostRequestDto;
+import com.coffee.miniproject.dto.request.PostRequestDto4Put;
+import com.coffee.miniproject.dto.response.PostDetailResponseDto;
+import com.coffee.miniproject.dto.response.PostResponseDto;
 import com.coffee.miniproject.model.Member;
 import com.coffee.miniproject.model.Post;
 import com.coffee.miniproject.model.PostCategory;
