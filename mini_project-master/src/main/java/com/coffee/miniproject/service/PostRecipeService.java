@@ -1,7 +1,7 @@
 package com.coffee.miniproject.service;
 
 import com.coffee.miniproject.model.Member;
-import com.coffee.miniproject.model.PostRecipe;
+import com.coffee.miniproject.model.Recipe;
 import com.coffee.miniproject.model.beverage.Beverage;
 import com.coffee.miniproject.model.beverage.BeverageIngredient;
 import com.coffee.miniproject.model.beverage.Category;
@@ -25,35 +25,35 @@ public class PostRecipeService {
     private final PostRecipeRepository postRecipeRepository;
     private final IngredientRepository ingredientRepository;
 
-    public PostRecipe.ResponseDetail postRecipe(Member member, PostRecipe.Request request) {
+    public Recipe.ResponseDetail postRecipe(Member member, Recipe.Request request) {
         // 1. Beverage 등록
         Beverage beverage = saveBeverage(request.getBeverage(), request.getSizeCode());
         // 2. Beverage Ingredient 등록
         List<BeverageIngredient.Response> beverageIngredientResponses = saveBeverageIngredient(beverage, request.getIngredients());
         // 3. Post 등록
-        PostRecipe postRecipe = savePostRecipe(member, beverage, request.getTitle(), request.getContents(), request.getImg(), request.getSizeCode());
+        Recipe recipe = savePostRecipe(member, beverage, request.getTitle(), request.getContents(), request.getImg(), request.getSizeCode());
 
-        return new PostRecipe.ResponseDetail(postRecipe, beverageIngredientResponses);
+        return new Recipe.ResponseDetail(recipe, beverageIngredientResponses);
     }
 
-    public List<PostRecipe.Response> getPostRecipe() {
-        List<PostRecipe> postRecipes = postRecipeRepository.findAll();
-        List<PostRecipe.Response> responses = new ArrayList<>();
-        for(PostRecipe postRecipe : postRecipes) {
-            responses.add(new PostRecipe.Response(postRecipe));
+    public List<Recipe.Response> getPostRecipe() {
+        List<Recipe> recipes = postRecipeRepository.findAll();
+        List<Recipe.Response> responses = new ArrayList<>();
+        for(Recipe recipe : recipes) {
+            responses.add(new Recipe.Response(recipe));
         }
         return responses;
     }
 
-    public PostRecipe.ResponseDetail getRecipeDetail(Long id) {
+    public Recipe.ResponseDetail getRecipeDetail(Long id) {
         List<BeverageIngredient.Response> beverageIngredientResponses = new ArrayList<>();
-        PostRecipe postRecipe = postRecipeRepository.findById(id).orElseThrow(
+        Recipe recipe = postRecipeRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("존재하지 않는 아이디입니다.")
         );
-        for(BeverageIngredient beverageIngredient : postRecipe.getBeverage().getBeverageIngredients()) {
+        for(BeverageIngredient beverageIngredient : recipe.getBeverage().getBeverageIngredients()) {
             beverageIngredientResponses.add(new BeverageIngredient.Response(beverageIngredient));
         }
-        return new PostRecipe.ResponseDetail(postRecipe, beverageIngredientResponses);
+        return new Recipe.ResponseDetail(recipe, beverageIngredientResponses);
     }
     @Transactional
     public List<BeverageIngredient.Response> saveBeverageIngredient(Beverage beverage, List<BeverageIngredient.Request> requests) {
@@ -71,7 +71,7 @@ public class PostRecipeService {
         return beverageRepository.save(new Beverage(beverage, sizeCode));
     }
     @Transactional
-    public PostRecipe savePostRecipe(Member member, Beverage beverage, String title, String contents, String img, Long sizeCode) {
-        return postRecipeRepository.save(new PostRecipe(member, beverage, title, contents, img, sizeCode));
+    public Recipe savePostRecipe(Member member, Beverage beverage, String title, String contents, String img, Long sizeCode) {
+        return postRecipeRepository.save(new Recipe(member, beverage, title, contents, img, sizeCode));
     }
 }

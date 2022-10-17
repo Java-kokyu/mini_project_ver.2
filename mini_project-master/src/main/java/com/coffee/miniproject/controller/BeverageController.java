@@ -1,7 +1,6 @@
 package com.coffee.miniproject.controller;
 
 import com.coffee.miniproject.common.Message;
-import com.coffee.miniproject.model.PostRecipe;
 import com.coffee.miniproject.model.beverage.Ingredient;
 import com.coffee.miniproject.repository.IngredientRepository;
 import lombok.RequiredArgsConstructor;

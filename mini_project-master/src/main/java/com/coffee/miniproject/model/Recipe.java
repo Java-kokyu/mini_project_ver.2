@@ -16,7 +16,7 @@ import java.util.List;
 @Entity
 @Getter
 @RequiredArgsConstructor
-public class PostRecipe extends Timestamped {
+public class Recipe extends Timestamped {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
@@ -42,7 +42,7 @@ public class PostRecipe extends Timestamped {
     @JoinColumn(name = "BEVERAGE_ID")
     private Beverage beverage;
 
-    public PostRecipe(Member member, Beverage beverage, String title, String contents, String img, Long sizeCode) {
+    public Recipe(Member member, Beverage beverage, String title, String contents, String img, Long sizeCode) {
         this.member = member;
         this.beverage = beverage;
         this.title = title;
@@ -85,16 +85,16 @@ public class PostRecipe extends Timestamped {
         private final String size;
         private final List<BeverageIngredient.Response> ingredients;
 
-        public ResponseDetail(PostRecipe postRecipe, List<BeverageIngredient.Response> ingredients) {
-            this.id = postRecipe.getId();
-            this.title = postRecipe.getTitle();
-            this.contents = postRecipe.getContents();
-            this.nickname = postRecipe.getMember().getNickname();
-            this.img = postRecipe.getImg();
-            this.date = postRecipe.getCreatedAt();
-            this.beverage = postRecipe.getBeverage().getBeverage();
-            this.sizeVolume = postRecipe.getSize().getSizeVolume();
-            this.size = postRecipe.getSize().getSize();
+        public ResponseDetail(Recipe recipe, List<BeverageIngredient.Response> ingredients) {
+            this.id = recipe.getId();
+            this.title = recipe.getTitle();
+            this.contents = recipe.getContents();
+            this.nickname = recipe.getMember().getNickname();
+            this.img = recipe.getImg();
+            this.date = recipe.getCreatedAt();
+            this.beverage = recipe.getBeverage().getBeverage();
+            this.sizeVolume = recipe.getSize().getSizeVolume();
+            this.size = recipe.getSize().getSize();
             this.ingredients = ingredients;
         }
 
@@ -111,24 +111,24 @@ public class PostRecipe extends Timestamped {
         private int likeCount;
         private Boolean checkLike;
 
-        public Response(PostRecipe postRecipe, int likeCount, Boolean checkLike) {
-            this.id = postRecipe.getId();
-            this.title = postRecipe.getTitle();
-            this.contents = postRecipe.getContents();
-            this.nickname = postRecipe.getMember().getNickname();
-            this.img = postRecipe.getImg();
-            this.date = postRecipe.getCreatedAt();
+        public Response(Recipe recipe, int likeCount, Boolean checkLike) {
+            this.id = recipe.getId();
+            this.title = recipe.getTitle();
+            this.contents = recipe.getContents();
+            this.nickname = recipe.getMember().getNickname();
+            this.img = recipe.getImg();
+            this.date = recipe.getCreatedAt();
             this.likeCount = likeCount;
             this.checkLike = checkLike;
         }
 
-        public Response(PostRecipe postRecipe) {
-            this.id = postRecipe.getId();
-            this.title = postRecipe.getTitle();
-            this.contents = postRecipe.getContents();
-            this.nickname = postRecipe.getMember().getNickname();
-            this.img = postRecipe.getImg();
-            this.date = postRecipe.getCreatedAt();
+        public Response(Recipe recipe) {
+            this.id = recipe.getId();
+            this.title = recipe.getTitle();
+            this.contents = recipe.getContents();
+            this.nickname = recipe.getMember().getNickname();
+            this.img = recipe.getImg();
+            this.date = recipe.getCreatedAt();
         }
     }
 }

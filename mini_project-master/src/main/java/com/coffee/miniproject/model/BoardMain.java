@@ -1,17 +1,20 @@
 package com.coffee.miniproject.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class PostContent {
+public class BoardMain {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -27,4 +30,13 @@ public class PostContent {
     @Column
     private String img;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "MEMBER_ID")
+    // @JsonBackReference(value = "member-fk")
+    private Member member;
+
+    // 자바 객체 사이드에서만 저장됨 (DB에 저장안됨)
+    @OneToMany(mappedBy = "post")
+    private List<Comment> comments;
 }
