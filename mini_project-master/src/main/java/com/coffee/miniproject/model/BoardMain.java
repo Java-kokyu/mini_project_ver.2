@@ -1,5 +1,6 @@
 package com.coffee.miniproject.model;
 
+import com.coffee.miniproject.util.Timestamped;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import com.sun.org.apache.xpath.internal.operations.String;
@@ -15,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class BoardMain {
+public class BoardMain extends Timestamped {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

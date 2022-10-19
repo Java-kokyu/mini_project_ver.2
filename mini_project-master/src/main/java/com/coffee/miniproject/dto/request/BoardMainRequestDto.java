@@ -18,9 +18,6 @@ public class BoardMainRequestDto {
     // 빌더 수정 예정
     public BoardMain toEntity() {
         return BoardMain.builder()
-                .title(title)
-                .contents(contents)
-                .img(img)
                 .build();
     }
 }
